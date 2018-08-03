@@ -97,6 +97,37 @@ Tbj_M3000_W10_num = f_Tbj_M3000_W10.Get('hNGenEvents').GetBinContent(1)
 Tbj_M3000_W20_num = f_Tbj_M3000_W20.Get('hNGenEvents').GetBinContent(1)
 Tbj_M3000_W30_num = f_Tbj_M3000_W30.Get('hNGenEvents').GetBinContent(1)
 
+#print 'TT_num: ', tt_M2T4_num
+#print 'WToLNu0J: ', WToLNu_0J_num
+#print 'WToLNu1J: ', WToLNu_1J_num
+#print 'WToLNu2J: ', WToLNu_2J_num
+#print 'WToLNu3J: ', WToLNu_3J_num
+#print 'DYToLL0J: ', DYToLL_0J_num
+#print 'DYToLL1J: ', DYToLL_1J_num
+#print 'DYToLL2J: ', DYToLL_2J_num
+#print 'DYToLL3J: ', DYToLL_3J_num
+#print 'ST_tch_antitop: ', st_tch_antitop_num
+#print 'ST_tch_top: ', st_tch_top_num
+#print 'ST_tW_antitop: ', st_tW_DR_antitop_num
+#print 'ST_tW_top: ', st_tW_DR_top_num
+#print 'Tbj_M1000_W10: ', Tbj_M1000_W10_num
+#print 'Tbj_M1000_W20: ', Tbj_M1000_W20_num
+#print 'Tbj_M1000_W30: ', Tbj_M1000_W30_num
+#print 'Tbj_M1500_W10: ', Tbj_M1500_W10_num
+#print 'Tbj_M1500_W20: ', Tbj_M1500_W20_num
+#print 'Tbj_M1500_W30: ', Tbj_M1500_W30_num
+#print 'Tbj_M2000_W10: ', Tbj_M2000_W10_num
+#print 'Tbj_M2000_W20: ', Tbj_M2000_W20_num
+#print 'Tbj_M2000_W30: ', Tbj_M2000_W30_num
+#print 'Tbj_M2500_W10: ', Tbj_M2500_W10_num
+#print 'Tbj_M2500_W20: ', Tbj_M2500_W20_num
+#print 'Tbj_M2500_W30: ', Tbj_M2500_W30_num
+#print 'Tbj_M3000_W10: ', Tbj_M3000_W10_num
+#print 'Tbj_M3000_W20: ', Tbj_M3000_W20_num
+#print 'Tbj_M3000_W30: ', Tbj_M3000_W30_num
+
+
+
 tt_M2T4nums = []
 WToLNunums = []
 DYToLLnums = []
@@ -147,7 +178,7 @@ for i in range(0, T_M3000_W10cutflow.GetSize()):
 
 # variables
 
-leg = TLegend(0.70,0.90,0.94,0.6) 
+leg = TLegend(0.80,0.99,0.99,0.8) 
 leg.SetBorderSize(0)
 leg.SetFillColor(10)
 leg.SetLineColor(10)
@@ -200,6 +231,7 @@ def getHisto( label, leg, var, Samples, color, verbose) :
         lumi = iSample[3]
         readname = var
         hist  = ifile.Get( readname ).Clone()
+        print label, ': ', hist.GetEntries()/nevt
         if verbose:
             print 'file: {0:<20}, histo:{1:<10}, integral before weight:{2:<3.3f}, nEntries:{3:<3.0f}, weight:{4:<2.3f}'.format(
                 ifile.GetName(),
