@@ -14,7 +14,7 @@ config.Data.publication = False
 config.Data.unitsPerJob = 1
 config.Data.splitting = 'EventBased'
 config.Data.outLFNDirBase = '/store/user/zolson/VLQ/'
-config.Data.outputPrimaryDataset = 'Combine'
+config.Data.outputPrimaryDataset = 'PUPPI'
 config.Data.totalUnits = 29
 config.section_('User')
 config.section_('Site')

@@ -172,6 +172,7 @@ h_TbjM3W1 = getHisto(TbjM3W1Label, TbjM3W1Leg, var, TbjM3000W10, kBlack, verbose
 #h_TbjM3W2 = getHisto(TbjM3W2Label, TbjM3W2Leg, var, TbjM3000W20, kYellow-4, verbose)
 #h_TbjM3W3 = getHisto(TbjM3W3Label, TbjM3W3Leg, var, TbjM3000W30, kYellow-8, verbose)
 
+
 h_alltop = h_top.Clone()
 h_alltop.Reset()
 n = h_alltop.GetName(); old = n.split('_')[0]; new = n.replace(old, 'allTop')
@@ -231,7 +232,7 @@ bin2 = h_top.GetXaxis().FindBin(bMax)
 f = TFile(outDir+"/"+var+".root", "RECREATE")
 integralError  = Double(5)
 for ihist in templates:
-    if var != 'hEff': overUnderFlow(ihist)
+    #if var != 'hEff': overUnderFlow(ihist)
     ihist.IntegralAndError(bin1, bin2, integralError)
     if 'Tbj' in ihist.GetName():
 	hname = ihist.GetName().split('_')[0]+'_'+ihist.GetName().split('_')[1]
@@ -264,8 +265,16 @@ xTitle = h_top.GetXaxis().GetTitle()
 yTitle = h_top.GetYaxis().GetTitle()
 
 if var == 'hCutflow':
-    hs.SetMinimum(10000)
-    hs.GetXaxis().SetRangeUser(1,10)
+    hs.SetMinimum(100000)
+    #hs.GetXaxis().SetRangeUser(1,11)
+if var == 'hmuchanak4jetsPtafter' or var == 'helechanak4jetsPtafter' or var == 'hak4jetsPtafter':
+    hs.GetXaxis().SetRangeUser(0,1000)
+if var == 'hFwrdJetPt' or var == 'hmuchanFwrdJetPt' or var == 'helechanFwrdJetPt':
+    hs.GetXaxis().SetRangeUser(0,250)
+if var == 'hhiggssdmass':
+    hs.GetXaxis().SetRangeUser(0,250)
+if var == 'htprimemass':
+    hs.GetXaxis().SetRangeUser(0,3700)
 
 setTitle(hs, xTitle, yTitle)
 gPad.RedrawAxis()
@@ -273,7 +282,7 @@ gPad.RedrawAxis()
 ll = TLatex()
 ll.SetNDC(kTRUE)
 ll.SetTextSize(0.05)
-ll.DrawLatex(0.63, 0.92, "3000 fb^{-1} (14 TeV)");
+ll.DrawLatex(0.5, 0.92, "3000 fb^{-1} (14 TeV)");
 
 prel = TLatex()
 prel.SetNDC(kTRUE)
@@ -293,5 +302,3 @@ if var != 'hTPrimeMRecoBoost' and not legOnly:
 
 c1.SaveAs(outDir+"/"+var+".png")
 c1.SaveAs(outDir+"/"+var+".pdf")
-raw_input("hold on")
-

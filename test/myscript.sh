@@ -37,91 +37,91 @@ while IFS='' read -r line || [[ -n "$line" ]]; do
 done < VLQAnalysis_Ntuples.txt
 
 if [ $1 -eq 1 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[0]}
+  python VLQAnalyzer.py -f ${filesarray[0]}
 fi
 if [ $1 -eq 2 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[1]}
+  python VLQAnalyzer.py -f ${filesarray[1]}
 fi
 if [ $1 -eq 3 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[2]}
+  python VLQAnalyzer.py -f ${filesarray[2]}
 fi
 if [ $1 -eq 4 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[3]}
+  python VLQAnalyzer.py -f ${filesarray[3]}
 fi
 if [ $1 -eq 5 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[4]}
+  python VLQAnalyzer.py -f ${filesarray[4]}
 fi
 if [ $1 -eq 6 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[5]}
+  python VLQAnalyzer.py -f ${filesarray[5]}
 fi
 if [ $1 -eq 7 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[6]}
+  python VLQAnalyzer.py -f ${filesarray[6]}
 fi
 if [ $1 -eq 8 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[7]}
+  python VLQAnalyzer.py -f ${filesarray[7]}
 fi
 if [ $1 -eq 9 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[8]}
+  python VLQAnalyzer.py -f ${filesarray[8]}
 fi
 if [ $1 -eq 10 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[9]}
+  python VLQAnalyzer.py -f ${filesarray[9]}
 fi
 if [ $1 -eq 11 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[10]}
+  python VLQAnalyzer.py -f ${filesarray[10]}
 fi
 if [ $1 -eq 12 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[11]}
+  python VLQAnalyzer.py -f ${filesarray[11]}
 fi
 if [ $1 -eq 13 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[12]}
+  python VLQAnalyzer.py -f ${filesarray[12]}
 fi
 if [ $1 -eq 14 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[13]}
+  python VLQAnalyzer.py -f ${filesarray[13]}
 fi
 if [ $1 -eq 15 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[14]}
+  python VLQAnalyzer.py -f ${filesarray[14]}
 fi
 if [ $1 -eq 16 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[15]}
+  python VLQAnalyzer.py -f ${filesarray[15]}
 fi
 if [ $1 -eq 17 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[16]}
+  python VLQAnalyzer.py -f ${filesarray[16]}
 fi
 if [ $1 -eq 18 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[17]}
+  python VLQAnalyzer.py -f ${filesarray[17]}
 fi
 if [ $1 -eq 19 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[18]}
+  python VLQAnalyzer.py -f ${filesarray[18]}
 fi
 if [ $1 -eq 20 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[19]}
+  python VLQAnalyzer.py -f ${filesarray[19]}
 fi
 if [ $1 -eq 21 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[20]}
+  python VLQAnalyzer.py -f ${filesarray[20]}
 fi
 if [ $1 -eq 22 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[21]}
+  python VLQAnalyzer.py -f ${filesarray[21]}
 fi
 if [ $1 -eq 23 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[22]}
+  python VLQAnalyzer.py -f ${filesarray[22]}
 fi
 if [ $1 -eq 24 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[23]}
+  python VLQAnalyzer.py -f ${filesarray[23]}
 fi
 if [ $1 -eq 25 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[24]}
+  python VLQAnalyzer.py -f ${filesarray[24]}
 fi
 if [ $1 -eq 26 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[25]}
+  python VLQAnalyzer.py -f ${filesarray[25]}
 fi
 if [ $1 -eq 27 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[26]}
+  python VLQAnalyzer.py -f ${filesarray[26]}
 fi
 if [ $1 -eq 28 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[27]}
+  python VLQAnalyzer.py -f ${filesarray[27]}
 fi
 if [ $1 -eq 29 ]; then
-  python testVLQAnalyzer.py -f ${filesarray[28]}
+  python VLQAnalyzer.py -f ${filesarray[28]}
 fi
 tar -cf VLQAnalysis_output.tar *out.root
 rm *out.root

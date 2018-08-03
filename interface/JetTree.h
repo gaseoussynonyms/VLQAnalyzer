@@ -37,7 +37,7 @@ public:
    std::vector<double> deepcsv;
    std::vector<double> pujetid;
    std::vector<double> partonFlavour; 
-   std::vector<double> hadronFlavour; 
+   std::vector<double> hadronFlavour;
    std::vector<double> sj0csvv2;
    std::vector<double> sj1csvv2;
    std::vector<double> sj0deepcsv;
@@ -52,7 +52,7 @@ public:
    std::vector<double> sj1eta;
    std::vector<double> sj0phi;
    std::vector<double> sj1phi;
-  
+ 
    void clearTreeVectors() {
       idx               .clear() ;     
       genjetpt          .clear() ;
