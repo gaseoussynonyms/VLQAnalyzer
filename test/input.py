@@ -160,11 +160,11 @@ T_M3000_W10cutflow = f_Tbj_M3000_W10.Get('hCutflow')
 for i in range(0,tt_M2T4cutflow.GetSize()):
     tt_M2T4nums.append(tt_M2T4cutflow.GetBinContent(i))
 for i in range(0,WToLNu0cutflow.GetSize()):
-    WToLNunums.append(WToLNu0cutflow.GetBinContent(i) + WToLNu1cutflow.GetBinContent(i) + WToLNu2cutflow.GetBinContent(i) + WToLNu3cutflow.GetBinContent(i))
+    WToLNunums.append(WToLNu0cutflow.GetBinContent(i) + WToLNu1cutflow.GetBinContent(i) + WToLNu3cutflow.GetBinContent(i) + WToLNu2cutflow.GetBinContent(i))
 for i in range(0,DYToLL0cutflow.GetSize()):
     DYToLLnums.append(DYToLL0cutflow.GetBinContent(i) + DYToLL1cutflow.GetBinContent(i) + DYToLL2cutflow.GetBinContent(i) + DYToLL3cutflow.GetBinContent(i))
 for i in range(0,st_tch_antitopcutflow.GetSize()):
-    stnums.append(st_tch_antitopcutflow.GetBinContent(i) + st_tch_topcutflow.GetBinContent(i) + st_tW_DR_antitopcutflow.GetBinContent(i) + st_tW_DR_topcutflow.GetBinContent(i))
+    stnums.append(st_tch_antitopcutflow.GetBinContent(i) + st_tch_topcutflow.GetBinContent(i) + st_tW_DR_topcutflow.GetBinContent(i) + st_tW_DR_antitopcutflow.GetBinContent(i))
 for i in range(0,T_M1000_W10cutflow.GetSize()):
     T_M1000_W10nums.append(T_M1000_W10cutflow.GetBinContent(i))
 for i in range(0,T_M1500_W10cutflow.GetSize()):

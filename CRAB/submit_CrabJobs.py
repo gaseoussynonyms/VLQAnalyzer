@@ -30,8 +30,8 @@ config.General.workArea = batch
 config.section_('JobType')
 config.JobType.psetName = PPNdir+'test/VLQAnalyzer_cfg.py'
 config.JobType.pluginName = 'Analysis'
-config.JobType.maxJobRuntimeMin = 2500#2000
-config.JobType.maxMemoryMB = 4000 #2500
+config.JobType.maxJobRuntimeMin = 2000
+config.JobType.maxMemoryMB = 2500
 #config.JobType.allowUndistributedCMSSW = True
 #config.JobType.disableAutomaticOutputCollection = True
 
@@ -39,16 +39,19 @@ config.section_('Data')
 config.Data.inputDataset = None
 config.Data.secondaryInputDataset = None
 config.Data.inputDBS = 'global'
+#config.Data.splitting = 'Automatic'
 config.Data.splitting = filesplit
 config.Data.unitsPerJob = units
-config.Data.outLFNDirBase = '/store/group/lpcbprime/noreplica/skhalil/Upgrade'
+#config.Data.outLFNDirBase = '/store/group/lpcbprime/noreplica/skhalil/Upgrade'
+config.Data.outLFNDirBase = '/store/user/zolson/datasets/VLQ/PUPPI/'    # find this on UNL by cding to /mnt/hadoop/user/uscms01/pnfs/unl.edu/data4/cms/store/user/zolson/datasets/VLQ/
+
 config.Data.allowNonValidInputDataset = True
 #config.Data.ignoreLocality = False
 config.Data.publication = False
 
 config.section_('Site')
-config.Site.storageSite = 'T3_US_FNALLPC'
-
+config.Site.storageSite = 'T2_US_Nebraska'
+config.Site.ignoreGlobalBlacklist = True
 def submit(config):
     try:
         crabCommand('submit', config = config)
@@ -65,9 +68,15 @@ for ijob in jobsLines :
     print 's: ', s
     cdi = s + 'MINIAODSIM'
     cgr = s.split('/')[1]
-    if 'ext1' in s: cgr_v1 = cgr+'_ext1' 
+    if 'v2-v2' in s: cgr_v1 = cgr+'_v2' 
+    elif 'ext1' in s: cgr_v1 = cgr+'_ext1'
+    elif 'v2-v3' in s: cgr_v1 = cgr+'_v3'
     else: cgr_v1 = cgr 
     r = s.replace("MiniAOD","DR" )
+    if 'v2-v2' in r:
+	r = r.replace("v2-v2", "v2-v1")
+    if 'v2-v3' in r:
+	r = r.replace("v2-v3", "v2-v1")
     cds = r + 'GEN-SIM-RECO'
     if 'TT' in cgr and 'v3' in cgr:
             cds_v1 = cds.replace("v3", "v1")

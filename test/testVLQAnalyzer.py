@@ -273,7 +273,7 @@ h2DdPtRelDRMin = TH2D("h2DdPtRelDRMin", ";#Delta R_{MIN}(l,j); min #Delta p_{T}^
 hNForwardJets = TH1D("hNForwardJets", "Number of Forward Jets; Number of Forward Jets; Events;", 50, 0, 100)
 hLeadingJetPt = TH1D("hLeadingJetPt", "Leading Jet p_{T}; p_{T} {GeV}; Events;", 100, 0, 1000)
 hLeadingJetEta = TH1D("hLeadingJetEta", "Leading Jet #eta; #eta; Events;", 80, -5.0, 5.0)
-hNCentJets = TH1D("hNCentJets", "Number of Central Jets; Number of Central Jets; Events;", 20, 0, 20)
+hNCentJets = TH1D("hNCentJets", "Number of Central Jets; Number of Central Jets; Events;", 50, 0, 100)
 hSecJetPt = TH1D("hSecJetPt", "Second Leading Jet p_{T}; p_{T} {GeV}; Events;", 100, 0, 1000)
 hSecJetEta = TH1D("hSecJetEta", "Second Leading Jet #eta; #eta; Events;", 80, -5.0, 5.0)
 hMET = TH1D("hMET", "Missing E_{T}; MET {GeV}; Events;", 50, 0, 1000)
@@ -296,10 +296,10 @@ hak8jetsj2deepcsv = TH1D("hak8jetsj2deepcsv", "ak8SubJet 2 DeepCSV; DeepCSV Valu
 hhiggssj2deepcsv = TH1D("hhiggssj2deepcsv", "Higgs SubJet 2 DeepCSV; DeepCSV Value; Events;", 50, 0, 1)
 hak4jetsPtafter = TH1D("hak4jetsPtafter", "p_{T} of Ak4Jets After Cuts; p_{T} {GeV}; Events;", 100, 0, 1000)
 hak4jetsEtaafter = TH1D("hak4jetsEtaafter", "#eta of Ak4Jets After Cuts; #eta; Events;", 50, -5.0, 5.0)
-hnumak4jets = TH1D("hnumak4jets", "Number of Ak4Jets After Cuts; Number of Ak4Jets; Events;", 25, 0, 25)
+hnumak4jets = TH1D("hnumak4jets", "Number of Ak4Jets After Cuts; Number of Ak4Jets; Events;", 50, 0, 100)
 hak8jetsPtafter = TH1D("hak8jetsPtafter", "p_{T} of Ak8Jets After Cuts; p_{T} {GeV}; Events;", 100, 0, 1000)
 hak8jetsEtaafter = TH1D("hak8jetsEtaafter", "#eta of Ak8Jets After Cuts; #eta; Events;", 50, -5.0, 5.0)
-hnumak8jets = TH1D("hnumak8jets", "Number of Ak8Jets After Cuts; Number of Ak8Jets; Events;", 10, 0, 10)
+hnumak8jets = TH1D("hnumak8jets", "Number of Ak8Jets After Cuts; Number of Ak8Jets; Events;", 50, 0, 100)
 h2DdPtRelDRMinafter = TH2D("h2DdPtRelDRMinafter", ";#Delta R_{MIN}(l,j) After Cuts; min #Delta p_{T}^{REL} (GeV)", 50, 0.0, 1.0, 20, 0., 200.)
 hhiggsmass = TH1D("hhiggsmass", "Higgs Mass; Mass {GeV},; Events;", 40, 0, 400)
 htopmass = TH1D("htopmass", "Top Mass; Mass {GeV}; Events;", 40, 0, 400)
@@ -319,8 +319,27 @@ hCentJetPt = TH1D("hCentJetPt", "Central Jets Pt; p_{t} {GeV}; Events;", 100, 0,
 hCentJetEta = TH1D("hCentJetEta", "Central Jets Eta; #eta; Events;", 40, -4.0, 4.0)
 hdRleadjetMET = TH1D("hdRleadjetMET", "#Delta R(leadingjet, MET); #Delta R; Events;", 50, 0.0, 5.0)
 h2Daftercut = TH2D("h2Daftercut", "2D Isolation Variables After Cut; #Delta r; p_{T}^{REL} (GeV)", 50, 0.0, 1.0, 20, 0.0, 200.0)
-hpTRelafter = TH1D("hpTRelafter", "p_{T}^{REL} After All Cuts; p_{T}^{REL} {GeV}; Events", 50, 0.0, 200.0)
-hdRMinafter = TH1D("hdRMinafter", "#Delta R_{Min} After All Cuts; #Delta R_{Min}; Events", 30, 0.0, 1.0)
+hpTRelafterall = TH1D("hpTRelafterall", "p_{T}^{REL} After All Cuts; p_{T}^{REL} {GeV}; Events", 50, 0.0, 200.0)
+hdRMinafterall = TH1D("hdRMinafterall", "#Delta R_{Min} After All Cuts; #Delta R_{Min}; Events", 30, 0.0, 1.0)
+
+hnumlepbefore = TH1D("hnumlepbefore", "Number of Leptons Before Cut; Number of Leptons; Events", 20, 0.0, 20.0)
+hnumlepafter = TH1D("hnumlepafter", "Number of Leptons After Cut; Number of Leptons; Events", 20, 0.0, 20.0)
+hnumcentjetsbefore = TH1D("hnumcentjetsbefore", "Number of Central Jets Before Cut; Number of Central Jets; Events", 30, 0.0, 30.0)
+hnumcentjetsafter = TH1D("hnumcentjetsafter", "Number of Central Jets After Cut; Number of Central Jets; Events", 30, 0.0, 30.0)
+hnumfjetsbefore = TH1D("hnumfjetsbefore", "Number of Forward Jets Before Cut; Number of Forward Jets; Events", 30, 0.0, 30.0)
+hnumfjetsafter = TH1D("hnumfjetsafter", "Number of Forward Jets After Cut; Number of Forward Jets; Events", 30, 0.0, 30.0)
+hleadjetptbefore = TH1D("hleadjetptbefore", "p_{T} of Leading Jet Before Cut; p_{T} {GeV}; Events", 100, 0.0, 1000.0)
+hleadjetptafter = TH1D("hleadjetptafter", "p_{T} of Leading Jet After Cut; p_{T} {GeV}; Events", 100, 0.0, 1000.0)
+hsecjetptbefore = TH1D("hsecjetptbefore", "p_{T} of Second Leading Jet Before Cut; p_{T} {GeV}; Events", 100, 0.0, 1000.0)
+hsecjetptafter = TH1D("hsecjetptafter", "p_{T} of Second Leading Jet After Cut; p_{T} {GeV}; Events", 100, 0.0, 1000.0)
+hpTRelafter = TH1D("hpTRelafter", "p_{T}^{REL} After Cuts; p_{T}^{REL} {GeV}; Events", 50, 0.0, 200.0)
+hdRMinafter = TH1D("hdRMinafter", "#Delta R_{Min} After Cuts; #Delta R_{Min}; Events", 30, 0.0, 1.0)
+hnumBjetsbefore = TH1D("hnumBjetsbefore", "Number of B Jets Before Cut; Number of B Jets; Events", 30, 0.0, 30.0)
+hnumBjetsafter = TH1D("hnumBjetsafter", "Number of B Jets After Cut; Number of B Jets; Events", 30, 0.0, 30.0)
+hMETbefore = TH1D("hMETbefore", "MET Before Cut; MET {GeV}; Events", 100, 0.0, 1000.0)
+hMETafter = TH1D("hMETafter", "MET After Cut; MET {GeV}; Events", 100, 0.0, 1000.0)
+hnumhiggsbefore = TH1D("hnumhiggsbefore", "Number of Higgs Before Cut; Number of Higgs; Events", 30, 0.0, 30.0)
+hnumhiggsafter = TH1D("hnumhiggsafter", "Number of Higgs After Cut; Number of Higgs; Events", 30, 0.0, 30.0)
 
 helechanak4jetsPtafter = TH1D("helechanak4jetsPtafter", "Electron Channelp_{T} of Ak4Jets After Cuts; p_{T} {GeV}; Events;", 100, 0, 1000)
 helechanak4jetsEtaafter = TH1D("helechanak4jetsEtaafter", "Electron Channel#eta of Ak4Jets After Cuts; #eta; Events;", 50, -5.0, 5.0)
@@ -453,6 +472,13 @@ for t in tree:
     vertices = t.SelectedEvt_nGoodVtx
     if vertices <= 0: continue;
 
+    ncut += 1
+    hCutflow.Fill(ncut, evtwt)
+
+#------------------------------------------------------------------------
+#                          BASELINE CUTS
+#------------------------------------------------------------------------
+
     nMedium=0
     elelepcand = []
     ele_eta = t.Electrons_eta
@@ -471,6 +497,44 @@ for t in tree:
     mu_m   = t.Muons_mass
     mu_iso = t.Muons_relIso
     muWP = t.Muons_muWP
+
+  # require exactly one medium WP electron or muon in event
+    for i in range(0, len(t.Electrons_pt)):
+	lepcand = TLorentzVector(0.0, 0.0, 0.0, 0.0)
+        # choose the WP: 1 = loose, 2 = medium, 4 = tight
+        if eWP[i] <= 1: continue
+        if ele_pt[i] < 40.: continue 
+        if abs(ele_eta[i]) > 2.8: continue
+        nMedium += 1
+	lepcand.SetPtEtaPhiM(ele_pt[i], ele_eta[i], ele_phi[i], ele_m[i])
+	elelepcand.append(lepcand)
+        #print 'mva = ',  ele_mva[i], 'eta = ', abs(ele_eta[i]), 'pt = ', ele_pt[i], 'eWP = ', eWP 
+
+    for i in range(0, len(t.Muons_pt)):
+	lepcand = TLorentzVector(0.0, 0.0, 0.0, 0.0)
+        # choose the WP: 1 = loose, 2 = medium, 4 = tight
+        if muWP[i] <= 1: continue
+        if mu_pt[i] < 40.: continue
+        if abs(mu_eta[i]) > 4.0: continue
+        nmuMedium += 1
+	lepcand.SetPtEtaPhiM(mu_pt[i], mu_eta[i], mu_phi[i], mu_m[i])
+	mulepcand.append(lepcand)
+        #print 'mva = ',  mu_mva[i], 'eta = ', abs(mu_eta[i]), 'pt = ', mu_pt[i], 'muWP = ', muWP 
+
+    #require exactly one lepton   
+    hnumlepbefore.Fill(nMedium + nmuMedium, evtwt)
+    if nMedium + nmuMedium != 1: continue 
+    ncut += 1
+    hCutflow.Fill(ncut, evtwt)
+    hnumlepafter.Fill(nMedium + nmuMedium, evtwt)
+
+    # store lep variables:
+    if nMedium ==  1:
+    	lepP4.SetPtEtaPhiM(elelepcand[0].Pt(), elelepcand[0].Eta(), elelepcand[0].Phi(), elelepcand[0].M())
+    elif nmuMedium == 1:
+        lepP4.SetPtEtaPhiM(mulepcand[0].Pt(), mulepcand[0].Eta(), mulepcand[0].Phi(), mulepcand[0].M())
+    else: continue
+    lep_p3 = lepP4.Vect();
 
     ak4jet_pt  = t.AK4JetsCHS_pt
     ak4jet_eta = t.AK4JetsCHS_eta #barrel: eta< 1.479
@@ -506,70 +570,18 @@ for t in tree:
         else:
             fjets.append(jet1)
 
-    met_pt = t.MET_pt
-    met_px = t.MET_px
-    met_py = t.MET_py
-    met_pz = t.MET_pz
-
-    preST = 0.0
-    HT = 0.0
-    preST = met_pt + lepP4.Pt()
-    #print 'preST: ', preST
-    for j in centjets:
-        HT += j.Pt()
-    ST = preST + HT
-
-    ncut += 1
-    hCutflow.Fill(ncut, evtwt)
-
-#------------------------------------------------------------------------
-#                          BASELINE CUTS
-#------------------------------------------------------------------------
-
-  # require exactly one medium WP electron or muon in event
-    for i in range(0, len(t.Electrons_pt)):
-	lepcand = TLorentzVector(0.0, 0.0, 0.0, 0.0)
-        # choose the WP: 1 = loose, 2 = medium, 4 = tight
-        if eWP[i] <= 1: continue
-        if ele_pt[i] < 40.: continue 
-        if abs(ele_eta[i]) > 2.8: continue
-        nMedium += 1
-	lepcand.SetPtEtaPhiM(ele_pt[i], ele_eta[i], ele_phi[i], ele_m[i])
-	elelepcand.append(lepcand)
-        #print 'mva = ',  ele_mva[i], 'eta = ', abs(ele_eta[i]), 'pt = ', ele_pt[i], 'eWP = ', eWP 
-
-    for i in range(0, len(t.Muons_pt)):
-	lepcand = TLorentzVector(0.0, 0.0, 0.0, 0.0)
-        # choose the WP: 1 = loose, 2 = medium, 4 = tight
-        if muWP[i] <= 1: continue
-        if mu_pt[i] < 40.: continue
-        if abs(mu_eta[i]) > 4.0: continue
-        nmuMedium += 1
-	lepcand.SetPtEtaPhiM(mu_pt[i], mu_eta[i], mu_phi[i], mu_m[i])
-	mulepcand.append(lepcand)
-        #print 'mva = ',  mu_mva[i], 'eta = ', abs(mu_eta[i]), 'pt = ', mu_pt[i], 'muWP = ', muWP 
-
-    #require exactly one lepton   
-    if nMedium + nmuMedium != 1: continue 
-    ncut += 1
-    hCutflow.Fill(ncut, evtwt)
-
-    # store lep variables:
-    if nMedium ==  1:
-    	lepP4.SetPtEtaPhiM(elelepcand[0].Pt(), elelepcand[0].Eta(), elelepcand[0].Phi(), elelepcand[0].M())
-    elif nmuMedium == 1:
-        lepP4.SetPtEtaPhiM(mulepcand[0].Pt(), mulepcand[0].Eta(), mulepcand[0].Phi(), mulepcand[0].M())
-    else: continue
-    lep_p3 = lepP4.Vect();
-
     # 3 or more central jets
+    hnumcentjetsbefore.Fill(len(centjets), evtwt)
     if len(centjets) < 3: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hnumcentjetsafter.Fill(len(centjets), evtwt)
     # 1 or more forward jets
+    hnumfjetsbefore.Fill(len(fjets), evtwt)
     if len(fjets) < 1: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hnumfjetsafter.Fill(len(fjets), evtwt)
 
     if centjets[0].Pt() < centjets[1].Pt(): print 'not ordered properly'
 
@@ -577,17 +589,21 @@ for t in tree:
     leadjet = centjets[0]
     leadjetpt = leadjet.Pt()
     leadjeteta = leadjet.Eta()
+    hleadjetptbefore.Fill(leadjetpt, evtwt)
     if leadjetpt <= 200: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hleadjetptafter.Fill(leadjetpt, evtwt)
 
     # second leading jet pt > 80
     secondjet = centjets[1]
     secondjetpt = secondjet.Pt()
     secondjeteta = secondjet.Eta()
+    hsecjetptbefore.Fill(secondjetpt, evtwt)
     if secondjetpt <= 80: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hsecjetptafter.Fill(secondjetpt, evtwt)
 
     # Pass 2D Isolation
     for j in jetsP4:
@@ -599,18 +615,22 @@ for t in tree:
         h2DdPtReldR.Fill(dR, delPtRel, evtwt)
         if dR < dRMin:
             nearestJetP4 = j
+	    nearestJetP3 = jet_p3
             dRMin = dR
             dPtRel = delPtRel
     # Store extra variables 
+    ptRel = lepP4.Perp(nearestJetP3)
     hDRMin.Fill(dRMin, evtwt)
-    hDPtRel.Fill(dPtRel, evtwt)
-    h2DdPtRelDRMin.Fill(dRMin, dPtRel, evtwt)
-    Pass2D = dPtRel > 40.0 or dRMin > 0.4
+    hDPtRel.Fill(ptRel, evtwt)
+    h2DdPtRelDRMin.Fill(dRMin, ptRel, evtwt)
+    Pass2D = ptRel > 40.0 or dRMin > 0.4
     if not Pass2D: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
 
-    h2Daftercut.Fill(dRMin, dPtRel, evtwt)
+    h2Daftercut.Fill(dRMin, ptRel, evtwt)
+    hpTRelafter.Fill(ptRel, evtwt)
+    hdRMinafter.Fill(dRMin, evtwt)
 
     # At least 1 B jet (using deepcsvm value) 
     ngoodjets = len(jetsP4)
@@ -630,14 +650,23 @@ for t in tree:
 	    if abs(jeteta) < 2.4:
 	        centBjetsP4.append(tempjet)
 
+    hnumBjetsbefore.Fill(nMedBjets, evtwt)
     if nMedBjets == 0: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hnumBjetsafter.Fill(nMedBjets, evtwt)
 
     # Met > 20 GeV
+    met_pt = t.MET_pt
+    met_px = t.MET_px
+    met_py = t.MET_py
+    met_pz = t.MET_pz
+
+    hMETbefore.Fill(met_pt, evtwt)
     if met_pt < 20: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hMETafter.Fill(met_pt, evtwt)
 
     ak8jet_pt = t.AK8Jets_pt
     ak8jet_eta = t.AK8Jets_eta
@@ -707,10 +736,12 @@ for t in tree:
 	hdRhiggslepP4.Fill(ak8jetP4.DeltaR(lepP4), evtwt)
 	hhiggssdmass.Fill(ak8jet_sdmass[j], evtwt)
 
+    hnumhiggsbefore.Fill(nHiggs, evtwt)
     if nHiggs < 1: continue
     #if nhiggsmatched < 1: continue
     ncut += 1
     hCutflow.Fill(ncut, evtwt)
+    hnumhiggsafter.Fill(nHiggs, evtwt)
 
 #------------------------------------------------------------------------
 #                          MASS RECONSTRUCTION
@@ -755,7 +786,7 @@ for t in tree:
 	if j.DeltaR(sj1P4) > 0.2 and j.DeltaR(sj2P4) > 0.2:
 	    nonhiggscentBjetsP4.append(j)
 
-    chi2, higgsP4, topP4, tophiggsdR = DoMassRecoBoost(nonhiggscentBjetsP4, higgsjets, higgsSoftDropM, lepP4, nuP4, higgsMass, topMass, chi2_dR_boost1, chi2_dR_boost2, chi2_higgs_boost1, chi2_higgs_boost2, chi2_top_boost1, chi2_top_boost2)
+    chi2, higgsP4, topP4, tophiggsdR = DoMassRecoBoost(jetsP4, higgsjets, higgsSoftDropM, lepP4, nuP4, higgsMass, topMass, chi2_dR_boost1, chi2_dR_boost2, chi2_higgs_boost1, chi2_higgs_boost2, chi2_top_boost1, chi2_top_boost2)
 
     # Tprime Reconstruction
     tprimeP4 = TLorentzVector(0.0, 0.0, 0.0, 0.0)
@@ -767,20 +798,20 @@ for t in tree:
     if chi2 != 100000.0:
         if tophiggsdR > 2.0:
 	    ncut += 1
-	    hCutflow.Fill(ncut, evtwt)
-	    if numsubBjets == 0:
+            hCutflow.Fill(ncut, evtwt)
+	    if nMedBjets == 0:
 		h0bjetshiggsmass.Fill(higgsP4.M(), evtwt)
 		h0bjetstopmass.Fill(topP4.M(), evtwt)
 		h0bjetstprimemass.Fill(tprimeP4.M(), evtwt)
 		h0bjetsdRtophiggs.Fill(tophiggsdR, evtwt)
 		h0bjetschi2.Fill(chi2, evtwt)
-	    if numsubBjets == 1:
+	    if nMedBjets == 1:
 		h1bjetshiggsmass.Fill(higgsP4.M(), evtwt)
                 h1bjetstopmass.Fill(topP4.M(), evtwt)
                 h1bjetstprimemass.Fill(tprimeP4.M(), evtwt)
                 h1bjetsdRtophiggs.Fill(tophiggsdR, evtwt)
                 h1bjetschi2.Fill(chi2, evtwt)
-	    if numsubBjets >= 2:
+	    if nMedBjets >= 2:
 		h2bjetshiggsmass.Fill(higgsP4.M(), evtwt)
                 h2bjetstopmass.Fill(topP4.M(), evtwt)
                 h2bjetstprimemass.Fill(tprimeP4.M(), evtwt)
@@ -823,14 +854,13 @@ for t in tree:
 	    hNForwardJets.Fill(len(fjets), evtwt)
     	    hNCentJets.Fill(len(centjets), evtwt)
 	    hNumBJets.Fill(len(centBjetsP4), evtwt)
-	    h2DdPtRelDRMinafter.Fill(dRMin, dPtRel, evtwt)
-	    hST.Fill(ST, evtwt)
+	    h2DdPtRelDRMinafter.Fill(dRMin, ptRel, evtwt)
 	    for i in range(0, len(centjets)):
 		hCentJetPt.Fill(centjets[i].Pt(), evtwt)
 		hCentJetEta.Fill(centjets[i].Eta(), evtwt)
 	    hdRleadjetMET.Fill(centjets[0].DeltaR(nuP4), evtwt)
-	    hpTRelafter.Fill(dPtRel, evtwt)
-	    hdRMinafter.Fill(dRMin, evtwt)
+	    hpTRelafterall.Fill(ptRel, evtwt)
+	    hdRMinafterall.Fill(dRMin, evtwt)
 	    if nMedium > 0: # electron channel
 		helechanhiggsmass.Fill(higgsP4.M(), evtwt)
                 helechantopmass.Fill(topP4.M(), evtwt)
@@ -865,13 +895,12 @@ for t in tree:
                 helechanNForwardJets.Fill(len(fjets), evtwt)
                 helechanNCentJets.Fill(len(centjets), evtwt)
                 helechanNumBJets.Fill(len(centBjetsP4), evtwt)
-                helechan2DdPtRelDRMinafter.Fill(dRMin, dPtRel, evtwt)
-		heleST.Fill(ST, evtwt)
+                helechan2DdPtRelDRMinafter.Fill(dRMin, ptRel, evtwt)
 		for i in range(0, len(centjets)):
                     helechanCentJetPt.Fill(centjets[i].Pt(), evtwt)
                     helechanCentJetEta.Fill(centjets[i].Eta(), evtwt)
 		helechandRleadjetMET.Fill(centjets[0].DeltaR(nuP4), evtwt)
-		helechanpTRelafter.Fill(dPtRel, evtwt)
+		helechanpTRelafter.Fill(ptRel, evtwt)
                 helechandRMinafter.Fill(dRMin, evtwt)
 	    elif nmuMedium > 0: # muon channel
 		hmuchanhiggsmass.Fill(higgsP4.M(), evtwt)
@@ -907,13 +936,12 @@ for t in tree:
                 hmuchanNForwardJets.Fill(len(fjets), evtwt)
                 hmuchanNCentJets.Fill(len(centjets), evtwt)
                 hmuchanNumBJets.Fill(len(centBjetsP4), evtwt)
-                hmuchan2DdPtRelDRMinafter.Fill(dRMin, dPtRel, evtwt)
-		hmuST.Fill(ST, evtwt)
+                hmuchan2DdPtRelDRMinafter.Fill(dRMin, ptRel, evtwt)
 		for i in range(0, len(centjets)):
                     hmuchanCentJetPt.Fill(centjets[i].Pt(), evtwt)
                     hmuchanCentJetEta.Fill(centjets[i].Eta(), evtwt)
 		hmuchandRleadjetMET.Fill(centjets[0].DeltaR(nuP4), evtwt)
-		hmuchanpTRelafter.Fill(dPtRel, evtwt)
+		hmuchanpTRelafter.Fill(ptRel, evtwt)
                 hmuchandRMinafter.Fill(dRMin, evtwt)
 
     del jetsP4[:]
