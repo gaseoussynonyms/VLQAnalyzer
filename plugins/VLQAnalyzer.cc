@@ -589,7 +589,7 @@ VLQAnalyzer::beginJob()
   ele_.RegisterTree(tree_, "Electrons") ;
   mu_.RegisterTree(tree_, "Muons");
   met_.RegisterTree(tree_, "MET");
-  ak4jet_.RegisterTree(tree_, "AK4JetsCHS") ; 
+  ak4jet_.RegisterTree(tree_, "AK4Jets") ; 
   ak8jet_.RegisterTree(tree_, "AK8Jets") ; 
 }
 

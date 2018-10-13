@@ -34,7 +34,7 @@ trap 'error_exit $?' ERR
 
 while IFS='' read -r line || [[ -n "$line" ]]; do
   filesarray+=( "$line" )
-done < PUPPIVLQAnalysis_Ntuples.txt
+done < VLQAnalysis_Ntuples.txt
 
 if [ $1 -eq 1 ]; then
   python VLQAnalyzer.py -f ${filesarray[0]}
