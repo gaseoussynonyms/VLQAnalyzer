@@ -484,7 +484,7 @@ VLQAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
                                            + j.bDiscriminator("pfDeepCSVJetTags:probbb"));
       ak8jet_.partonFlavour    .push_back(j.partonFlavour()); 
       ak8jet_.hadronFlavour    .push_back(j.hadronFlavour()); 
-
+      
       std::vector<edm::Ptr<pat::Jet> > const& sdsubjets = j.subjets("SoftDropPuppi") ;
       if (sdsubjets.size() < 2) continue ;
       ak8jet_.sj0pt           .push_back(sdsubjets.at(0)->pt()) ; 

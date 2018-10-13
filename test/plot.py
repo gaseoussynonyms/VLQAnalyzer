@@ -2,7 +2,7 @@ import sys
 import os
 import subprocess
 from array import array
-from ROOT import TH1D,TH2D,TFile,TMath,TCanvas,THStack,TLegend,TPave,TLine,TLatex
+from ROOT import TH1D,TH2D,TFile,TMath,TCanvas,THStack,TLegend,TPave,TLine,TLatex,TGraph
 from ROOT import gROOT,gStyle,gPad,gStyle
 from ROOT import Double,kBlue,kRed,kOrange,kMagenta,kYellow,kCyan,kGreen,kGray,kBlack,kTRUE
 
@@ -51,6 +51,10 @@ parser.add_option('--legOnly',action='store_true',
                   default=False,
                   dest='legOnly',
                   help='plot legend only')
+parser.add_option('--effPlot',action='store',
+		  default=0,
+		  dest='effPlot',
+		  help='Draw efficiency plot')
 (options,args) = parser.parse_args()
 
 var = options.var
@@ -60,7 +64,7 @@ lumi = options.Lumi
 drawLog = options.logScale
 verbose = options.verbose
 legOnly = options.legOnly
-
+drawEff = options.effPlot
 
 # add input
 
@@ -198,6 +202,56 @@ h_data.Reset()
 n3 =  h_data.GetName(); old3 = n3.split('_')[0]; new3 = n3.replace(old3, 'data_obs')
 h_data.SetName(new3)
 
+nBins = h_top.GetNbinsX()
+bMin = h_top.GetBinLowEdge(1)
+bMax = h_top.GetBinLowEdge(nBins+1)
+bin1 = h_top.GetXaxis().FindBin(bMin)
+bin2 = h_top.GetXaxis().FindBin(bMax)
+
+if drawEff == '1':
+  c2 = TCanvas('c2', 'c2', 800, 600)
+  x, y = array( 'd' ), array( 'd' )
+  x.append(1000)
+  y.append(100 * h_TbjM1W1.Integral(bin1,bin2)/(h_top.Integral(bin1,bin2) + h_st.Integral(bin1,bin2) + h_DYToLL.Integral(bin1,bin2) + h_WToLNu.Integral(bin1,bin2)))
+  x.append(1500)
+  y.append(100 * h_TbjM15W1.Integral(bin1,bin2)/(h_top.Integral(bin1,bin2) + h_st.Integral(bin1,bin2) + h_DYToLL.Integral(bin1,bin2) + h_WToLNu.Integral(bin1,bin2)))
+  x.append(2000)
+  y.append(100 * h_TbjM2W1.Integral(bin1,bin2)/(h_top.Integral(bin1,bin2) + h_st.Integral(bin1,bin2) + h_DYToLL.Integral(bin1,bin2) + h_WToLNu.Integral(bin1,bin2)))
+  x.append(2500)
+  y.append(100 * h_TbjM25W1.Integral(bin1,bin2)/(h_top.Integral(bin1,bin2) + h_st.Integral(bin1,bin2) + h_DYToLL.Integral(bin1,bin2) + h_WToLNu.Integral(bin1,bin2)))
+  x.append(3000)
+  y.append(100 * h_TbjM3W1.Integral(bin1,bin2)/(h_top.Integral(bin1,bin2) + h_st.Integral(bin1,bin2) + h_DYToLL.Integral(bin1,bin2) + h_WToLNu.Integral(bin1,bin2)))
+  gr = TGraph(5, x, y)
+  gr.SetLineColor( 8 )
+  gr.SetLineWidth( 4 )
+  gr.SetMarkerColor( 1 )
+  gr.SetMarkerStyle( 2 )
+  gr.SetTitle( 'Signal Efficiency' )
+  gr.GetXaxis().SetTitle( 'Mass (GeV)' )
+  gr.GetYaxis().SetTitle( 'Efficiency %' )
+  gr.Draw( 'ALP' )
+  ll = TLatex()
+  ll.SetNDC(kTRUE)
+  ll.SetTextSize(0.05)
+  ll.DrawLatex(0.5, 0.92, "3000 fb^{-1} (14 TeV)");
+
+  prel = TLatex()
+  prel.SetNDC(kTRUE)
+  prel.SetTextFont(52)
+  prel.SetTextFont(52)
+  prel.SetTextSize(0.05)
+  prel.DrawLatex(0.28, 0.92, "Simulation")
+
+  cms = TLatex()
+  cms.SetNDC(kTRUE)
+  cms.SetTextFont(61)
+  cms.SetTextFont(61)
+  cms.SetTextSize(0.05)
+  cms.DrawLatex(0.20, 0.92, "CMS")
+  
+  c2.SaveAs(outDir+"/tprimemass_eff.png")
+  c2.SaveAs(outDir+"/tprimemass_eff.pdf")
+
 c1 = TCanvas('c1', 'c1', 800, 600)
 
 templates = []
@@ -231,13 +285,19 @@ bin2 = h_top.GetXaxis().FindBin(bMax)
 
 f = TFile(outDir+"/"+var+".root", "RECREATE")
 integralError  = Double(5)
+integral = Double(5)
 for ihist in templates:
     #if var != 'hEff': overUnderFlow(ihist)
-    ihist.IntegralAndError(bin1, bin2, integralError)
+    integral = ihist.IntegralAndError(bin1, bin2, integralError)
     if 'Tbj' in ihist.GetName():
 	hname = ihist.GetName().split('_')[0]+'_'+ihist.GetName().split('_')[1]
     else:
 	hname = ihist.GetName().split('_')[0]
+    print 'histo: ', ihist
+    print 'integral: ', integral
+    print 'error: ', integralError
+    print 'num: ', ihist.GetEntries()
+    print 'getsumweights: ', ihist.GetSumOfWeights()
     ihist.Write()
 print '\hline'
 
@@ -273,8 +333,8 @@ if var == 'hFwrdJetPt' or var == 'hmuchanFwrdJetPt' or var == 'helechanFwrdJetPt
     hs.GetXaxis().SetRangeUser(0,250)
 if var == 'hhiggssdmass':
     hs.GetXaxis().SetRangeUser(0,250)
-if var == 'htprimemass':
-    hs.GetXaxis().SetRangeUser(0,3700)
+if var == "hNForwardJets":
+    hs.GetXaxis().SetRangeUser(0,20)
 
 setTitle(hs, xTitle, yTitle)
 gPad.RedrawAxis()
@@ -297,7 +357,7 @@ cms.SetTextFont(61)
 cms.SetTextFont(61)
 cms.SetTextSize(0.05)
 cms.DrawLatex(0.20, 0.92, "CMS")
-if var != 'hTPrimeMRecoBoost' and not legOnly:
+if var != 'hCutflow' and not legOnly:
     leg.Draw()
 
 c1.SaveAs(outDir+"/"+var+".png")

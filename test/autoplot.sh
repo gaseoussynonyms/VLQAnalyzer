@@ -7,5 +7,5 @@ done < histostoplot.txt
 for i in "${filesarray[@]}"
 do
   echo $i
-  python plot.py --var $i --logScale 1
+  python plot.py --var $i --logScale 1 --plotDir Summer2018Plots
 done
